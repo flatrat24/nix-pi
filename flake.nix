@@ -14,16 +14,22 @@
 
   outputs = { self, nixpkgs, nixos-hardware, neovim-config, ... } @ inputs: let
     system = "aarch64-linux";
+    nvim = neovim-config.packages.${system}.default;
   in {
     nixosConfigurations."pi" = nixpkgs.lib.nixosSystem {
+      inherit system;
       specialArgs = {
         inputs = inputs;
-        system = system;
         neovim-config = neovim-config;
       };
       modules = [
         ./configuration.nix
         nixos-hardware.nixosModules.raspberry-pi-4
+        {
+          environment.systemPackages = [
+            nvim
+          ];
+        }
       ];
     };
   };
