@@ -31,6 +31,10 @@ Once you make that replacement, run the command.
 ```
 sudo dd if="$(find . -type f -name 'nixos-image-sd-card-*.img')" of=/dev/sda2 bs=10MB oflag=dsync status=progress
 ```
+Clean up once done:
+```
+rm -f nixos-image-sd-card*
+```
 
 # Useful Links
 These are all articles that I referenced throughout this process:
