@@ -10,7 +10,7 @@ cp $(find pi.sd/sd-image -mindepth 1) $(find pi.sd/sd-image -mindepth 1 | awk -F
 ```
 Once the file is copied, run the next command to decompress the image. It finds the file copied with the previous command and decompresses it.
 ```
-unzstd $(find . -type f -name 'nixos-image-sd-card-*.img.zst'\n)
+unzstd $(find . -type f -name 'nixos-image-sd-card-*.img.zst')
 ```
 Lastly, putting the image onto the sd card. Before running the command, make sure to replace `<path/to/drive>` with the actual path. You can find it with `lsblk`. This is what my lsblk output looks like, and I end up using `/dev/sda2`:
 ```
@@ -26,5 +26,5 @@ nvme0n1     259:0    0 465.8G  0 disk
 ```
 Once you make that replacement, run the command.
 ```
-sudo dd if=nixos-image-sd-card-25.05.20250508.dda3dcd-aarch64-linux.img of=/dev/sda2 bs=10MB oflag=dsync status=progress
+sudo dd if="$(find . -type f -name 'nixos-image-sd-card-*.img.zst')" of=/dev/sda2 bs=10MB oflag=dsync status=progress
 ```
