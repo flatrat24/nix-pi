@@ -12,7 +12,7 @@ Once the file is copied, run the next command to decompress the image. It finds 
 ```
 unzstd $(find . -type f -name 'nixos-image-sd-card-*.img.zst'\n)
 ```
-Lastly, putting the image onto the sd card. Before running the command, make sure to replace `<path/to/drive>` with the actual path. You can find it with `lsblk`. This is what my lsblk output looks like, and I use up using `/dev/sda2`:
+Lastly, putting the image onto the sd card. Before running the command, make sure to replace `<path/to/drive>` with the actual path. You can find it with `lsblk`. This is what my lsblk output looks like, and I end up using `/dev/sda2`:
 ```
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 sda           8:0    1  14.4G  0 disk 
