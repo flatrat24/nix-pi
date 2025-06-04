@@ -38,7 +38,11 @@ rm -f nixos-image-sd-card*
 
 # Useful Links
 These are all articles that I referenced throughout this process:
-    - [Janissary's Blod](https://blog.janissary.xyz/posts/nixos-install-custom-image)
+
+    - [Janissary's Blog](https://blog.janissary.xyz/posts/nixos-install-custom-image)
+
     - [More in depth GitHub repository similar to this one](https://github.com/lucernae/nixos-pi)
+
     - [rbf.dev's blog](https://rbf.dev/blog/2020/05/custom-nixos-build-for-raspberry-pis/#nix-packages-and-image-configuration)
+
     - [NixOS Wiki article on compiling for ARM](https://nixos.wiki/wiki/NixOS_on_ARM)
