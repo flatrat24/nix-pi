@@ -1,3 +1,6 @@
+# Introduction
+This repository is a flake to generate an image for a Raspberry Pi 4. I personally use it to configure a NixOS media server using JellyFin, but I'm sure it can be easily changed around to fit another use case in `configuration.nix`.
+
 # Guide
 
 Evaluate the nix flake to generate the sd image with the following command. Run it in the directory of the flake:
@@ -28,3 +31,10 @@ Once you make that replacement, run the command.
 ```
 sudo dd if="$(find . -type f -name 'nixos-image-sd-card-*.img.zst')" of=/dev/sda2 bs=10MB oflag=dsync status=progress
 ```
+
+# Useful Links
+These are all articles that I referenced throughout this process:
+    - [Janissary's Blod](https://blog.janissary.xyz/posts/nixos-install-custom-image)
+    - [More in depth GitHub repository similar to this one](https://github.com/lucernae/nixos-pi)
+    - [rbf.dev's blog](https://rbf.dev/blog/2020/05/custom-nixos-build-for-raspberry-pis/#nix-packages-and-image-configuration)
+    - [NixOS Wiki article on compiling for ARM](https://nixos.wiki/wiki/NixOS_on_ARM)
