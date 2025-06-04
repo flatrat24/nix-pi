@@ -38,7 +38,6 @@ rm -f nixos-image-sd-card*
 
 # Useful Links
 These are all articles that I referenced throughout this process:
-
     - [Janissary's Blog](https://blog.janissary.xyz/posts/nixos-install-custom-image)
 
     - [More in depth GitHub repository similar to this one](https://github.com/lucernae/nixos-pi)
