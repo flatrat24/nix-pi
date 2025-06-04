@@ -19,6 +19,19 @@
     jellyfin-ffmpeg
   ];
 
+  ##--- ZSH Config ---##
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    enableLsColors = true;
+    # shellAliases = {
+    #   
+    # };
+  };
+  environment.variables = {
+    SHELL = "zsh";
+  };
+
   hardware.enableAllHardware = lib.mkForce false;
   
   boot = {
@@ -58,9 +71,7 @@
   nix.settings.trusted-users = [ "admin" ];
 
   # ergonomics, just in case I need to ssh into
-  programs.zsh.enable = true;
   environment.variables = {
-    SHELL = "zsh";
     EDITOR = "neovim";
   };
 
