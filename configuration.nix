@@ -1,8 +1,3 @@
-# https://blog.janissary.xyz/posts/nixos-install-custom-image
-# https://github.com/lucernae/nixos-pi
-# https://rbf.dev/blog/2020/05/custom-nixos-build-for-raspberry-pis/#nix-packages-and-image-configuration
-# https://nixos.wiki/wiki/NixOS_on_ARM#Compiling_through_QEMU.2Fkvm
-
 { pkgs, lib, inputs, system, neovim-config, ... }: {
   imports = [
     ./hardware-configuration.nix
