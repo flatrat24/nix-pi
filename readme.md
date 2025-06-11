@@ -29,7 +29,7 @@ nvme0n1     259:0    0 465.8G  0 disk
 ```
 Once you make that replacement, run the command.
 ```
-sudo dd if="$(find . -type f -name 'nixos-image-sd-card-*.img')" of=/dev/sda2 bs=10MB oflag=dsync status=progress
+sudo dd if="$(find . -type f -name 'nixos-image-sd-card-*.img')" of=/dev/sda bs=10MB oflag=dsync status=progress
 ```
 Clean up once done:
 ```

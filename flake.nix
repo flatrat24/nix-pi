@@ -10,25 +10,40 @@
       inputs.nvf.follows = "nvf";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, neovim-config, ... } @ inputs: let
+  outputs = { self, nixpkgs, ... } @ inputs: let
     system = "aarch64-linux";
-    nvim = neovim-config.packages.${system}.default;
+    host = "pi";
+    adminUser = "admin";
   in {
-    nixosConfigurations."pi" = nixpkgs.lib.nixosSystem {
-      inherit system;
+    nixosConfigurations.${host} = nixpkgs.lib.nixosSystem {
       specialArgs = {
-        inputs = inputs;
-        neovim-config = neovim-config;
+        inherit inputs;
+        inherit system;
+        inherit host;
+        inherit adminUser;
       };
       modules = [
         ./configuration.nix
-        nixos-hardware.nixosModules.raspberry-pi-4
+        inputs.nixos-hardware.nixosModules.raspberry-pi-4
+        inputs.home-manager.nixosModules.home-manager
         {
-          environment.systemPackages = [
-            nvim
-          ];
+          home-manager = {
+            users.${adminUser} = import ./home.nix;
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            extraSpecialArgs = {
+              inherit inputs;
+              inherit system;
+              inherit host;
+              inherit adminUser;
+            };
+          };
         }
       ];
     };

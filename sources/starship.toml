@@ -1,0 +1,86 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$directory\
+$character
+"""
+
+right_format = """
+$git_branch\
+$git_status\
+$cmd_duration
+"""
+
+palette = 'eldritch'
+
+[directory]
+style = "bg:bg00 fg:base06"
+format = "[ $path ]($style)"
+home_symbol = '~'
+truncate_to_repo = true
+truncation_symbol = '…/'
+
+[character]
+disabled = false
+success_symbol = '[ \$ ](bg:bg02 bold fg:base03)'
+error_symbol = '[ \$ ](bg:bg02 bold fg:base01)'
+vimcmd_symbol = '[ N ](bg:bg02 bold fg:base04)'
+vimcmd_replace_one_symbol = '[ r ](bg:bg02 bold fg:base02)'
+vimcmd_replace_symbol = '[ R ](bg:bg02 bold fg:base02)'
+vimcmd_visual_symbol = '[ V ](bg:bg02 bold fg:base05)'
+
+[git_branch]
+style = "bg:bg00 fg:base05"
+format = '[ $symbol $branch]($style)'
+symbol = ''
+
+[git_status]
+style = "bg:bg00"
+format = '[$ahead_behind$modified$staged$untracked ]($style)'
+ahead = '[⇡${count}](fg:yellow)'
+behind = '[⇣${count}](fg:yellow)'
+diverged = '[⇕${count}](fg:yellow)'
+up_to_date = ''
+modified = '[ !${count}](fg:base01)'
+staged = '[ +${count}](fg:base03)'
+untracked = '[ ?${count}](fg:base04)'
+
+[cmd_duration]
+show_milliseconds = true
+format = '[ 󰔟 $duration ]($style)'
+style = "bg:bg00 fg:base02"
+disabled = false
+min_time = 0
+show_notifications = false
+min_time_to_notify = 30_000
+
+[line_break]
+disabled = false
+
+[palettes.eldritch]
+base00 = "#212337"
+base01 = "#F16C75"
+base02 = "#C0C95F"
+base03 = "#37F499"
+base04 = "#10A1BD"
+base05 = "#A48CF2"
+base06 = "#04D1F9"
+base07 = "#EBFAFA"
+base08 = "#212337"
+base09 = "#F0313E"
+base10 = "#F1FC79"
+base11 = "#00FA82"
+base12 = "#39DDFD"
+base13 = "#A48CF2"
+base14 = "#49EDFF"
+base15 = "#EBFAFA"
+
+bg00   = "#171928"
+bg01   = "#212337"
+bg02   = "#292E42"
+bg03   = "#414868"
+
+fg00   = "#EBFAFA"
+fg01   = "#ABB4DA"
+fg02   = "#3B4261"
+fg03   = "#7081D0"
